@@ -7,28 +7,23 @@ import 'package:image_picker/image_picker.dart';
 
 class BusinessAssetController extends GetxController{
   TextEditingController descController = TextEditingController();
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
-  Rx<File?>? image;
-  XFile? imageTemp;
+  RxList<XFile> imageFiles = <XFile>[].obs;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future pickImage() async {
     try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      final imageTamporary = File(image.path.toString());
-      this.image?.value = imageTamporary;
-      // setState(() {
-
-      // });
+      final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (pickedImage == null) return;
+      imageFiles.add(pickedImage);
     } on PlatformException catch (e) {
-      print('Failed to pick image:$e');
+      print('Somehow Failed to pick image:$e');
     }
   }
 
-
-
+  @override
+  void onClose() {
+    descController.dispose();
+    imageFiles.clear();
+    super.onClose();
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swazei/app/utils/constant.dart';
 import 'package:swazei/app/view/splash.dart';
 
 void main() {
@@ -15,12 +16,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         fontFamily: 'DM Sans'
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
-      routes: {'/splash': (context) => Splash(),
+      initialRoute: splashRoute,
+      routes: {splashRoute: (context) => Splash(),
       });
   }
 }

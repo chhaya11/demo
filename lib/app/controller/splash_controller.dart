@@ -1,14 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:swazei/app/view/home.dart';
 
 
-class SplashController extends GetxController{
+class SplashController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-    Future.delayed(const Duration(seconds: 5) ,
-            ()=> Get.offAll(Home()));
+    Future.delayed(const Duration(seconds: 2) ,
+            ()=> Get.offAll(() => const Home()));
   }
 }

@@ -5,7 +5,7 @@ import 'package:swazei/app/controller/splash_controller.dart';
 import '../utils/app_colors.dart';
 
 class Splash extends StatelessWidget {
-   Splash({Key? key}) : super(key: key);
+  Splash({Key? key}) : super(key: key);
    final splashController = Get.put(SplashController());
 
   @override
